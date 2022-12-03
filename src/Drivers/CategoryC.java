@@ -1,19 +1,9 @@
 package Drivers;
 
 import Drivers.Driver;
+import Transports.Car;
+import Transports.Truck;
 
-public class CategoryC extends Driver {
-    public CategoryC(String fio, boolean havingALicense, int experience) {
-        super(fio, havingALicense, experience);
-    }
-    public void startMoving(){
-        System.out.println("Начал движение на грузовом авто");
-    }
-    public void finishMoving(){
-        System.out.println("Остановился на грузовом авто");
+public class CategoryC extends Category{
 
-    }
-    public void refuel(){
-        System.out.println("Заправил грузовое авто");
-    }
 }

@@ -1,6 +1,7 @@
-import Drivers.Driver;
+import Drivers.*;
 import Transports.Bus;
 import Transports.Car;
+import Transports.Transport;
 import Transports.Truck;
 
 public class Main {
@@ -10,8 +11,8 @@ public class Main {
         bmw.pitStop();
         bmw.bestLapTime();
         bmw.maxSpeed();
-        Driver<Car> ivan = new Driver<> ("Иван Ианович Иванов", true, 3);
-        ivan.drive(bmw);
+        Driver<Car, CategoryB> ivan = new Driver<>("Иван Ианович Иванов", true, 3, new CategoryB());
+        ivan.participatesInTheRace(bmw);
         System.out.println();
 
         Truck gazelle = new Truck("ГАЗель", "Next", 2.9);
@@ -19,8 +20,8 @@ public class Main {
         gazelle.pitStop();
         gazelle.bestLapTime();
         gazelle.maxSpeed();
-        Driver<Truck> misha = new Driver<> ("Михайлов Михаил Михайлович", true, 4);
-        misha.drive(gazelle);
+        Driver<Truck, CategoryC> misha = new Driver<>("Михайлов Михаил Михайлович", true, 4, new CategoryC());
+        misha.participatesInTheRace(gazelle);
         System.out.println();
 
         Bus zis = new Bus("ЗИС", "154", 4.5);
@@ -28,8 +29,9 @@ public class Main {
         zis.pitStop();
         zis.bestLapTime();
         zis.maxSpeed();
-        Driver<Bus> alex = new Driver<> ("Александров Александр Александрович", true, 5);
-        alex.drive(zis);
+        Driver<Bus, CategoryC> alex = new Driver<> ("Александров Александр Александрович", true, 5, new CategoryC());
+        alex.participatesInTheRace(zis);
         System.out.println();
+
     }
 }

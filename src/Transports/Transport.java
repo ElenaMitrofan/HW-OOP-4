@@ -31,7 +31,6 @@ public abstract class Transport {
         return brand;
     }
 
-
     public String getModel() {
         return model;
     }

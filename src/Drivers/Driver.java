@@ -1,14 +1,15 @@
 package Drivers;
 
-import Transports.Competing;
-import Transports.Transport;
+import Transports.*;
 
-public class  Driver <D extends Transport & Competing> {
+public class  Driver <T extends Transport, C extends Category>{
     protected final String fio;
     protected final boolean HavingALicense;
     protected  final int experience;
 
-    public Driver(String fio, boolean havingALicense, int experience) {
+    private final Category category;
+
+    public Driver(String fio, boolean havingALicense, int experience, C category) {
         if (fio == null || fio == "") {
             this.fio = "default";
         }else{
@@ -21,9 +22,17 @@ public class  Driver <D extends Transport & Competing> {
         }else{
             this.experience = experience;
         }
+
+        this.category = category;
     }
-    public void drive(D transport) {
-        System.out.println("Водитель ["+getFio()+"] управляет автомобилем ["+transport.getBrand()+"] и будет участвовать в заезде");
+    public void participatesInTheRace (T car){
+        if ((car instanceof Car && category instanceof CategoryB)
+            || (car instanceof Truck && category instanceof CategoryC)
+            || (car instanceof Bus && category instanceof CategoryD)) {
+            System.out.println("водитель [" + getFio() + "] управляет автомобилем [" + car.getBrand() + "] и будет участвовать в заезде");
+        } else {
+            System.out.println("Водитель не может принять участие");
+        }
     }
 
     public String getFio() {
