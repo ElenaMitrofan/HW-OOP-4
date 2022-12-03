@@ -26,9 +26,7 @@ public class  Driver <T extends Transport, C extends Category>{
         this.category = category;
     }
     public void participatesInTheRace (T car){
-        if ((car instanceof Car && category instanceof CategoryB)
-            || (car instanceof Truck && category instanceof CategoryC)
-            || (car instanceof Bus && category instanceof CategoryD)) {
+        if (category.canDrive(car) == true) {
             System.out.println("водитель [" + getFio() + "] управляет автомобилем [" + car.getBrand() + "] и будет участвовать в заезде");
         } else {
             System.out.println("Водитель не может принять участие");
